@@ -1,3 +1,3 @@
 = yadic.rb
 
-A lightweight dependency injection container for Ruby. Inspired by <a href="http://code.google.com/p/yadic/">Yadic</a>.
+A lightweight dependency injection container for Ruby. Inspired by Yadic (http://code.google.com/p/yadic/).
