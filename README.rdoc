@@ -1,3 +1,7 @@
 = yadic.rb
 
 A lightweight dependency injection container for Ruby. Inspired by Yadic (http://code.google.com/p/yadic/).
+
+== Installation
+
+  gem install yadic
