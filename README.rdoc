@@ -43,7 +43,7 @@ Get an instance:
   bar = container[:bar]
   bar.show # => 'foo'
 
-Decoration (the <code>Decorator</code> mixin is included in yadic):
+You can decorate things that have already been put in the container:
 
   class Embelish
     include Decorator
@@ -56,3 +56,5 @@ Decoration (the <code>Decorator</code> mixin is included in yadic):
   container.decorate(:foo, Embelish)
 
   container[:foo].msg => 'fancy foo'
+
+(The <code>Decorator</code> mixin is included in yadic.)
