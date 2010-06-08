@@ -5,3 +5,54 @@ A lightweight dependency injection container for Ruby. Inspired by Yadic (http:/
 == Installation
 
   gem install yadic
+
+== Usage
+
+Some test classes:
+
+  class Foo
+    def msg() 'foo' end
+  end     
+
+  class Bar
+    def initialize(messenger)
+      @messenger = messenger
+    end
+
+    def show
+      @messenger.msg
+    end
+  end
+
+Create a container:
+
+  require 'yadic'
+
+  container = Yadic::Container.new
+
+Add a class with a nullary constructor:
+
+  container.add(:foo, Foo)
+
+Add a class with dependencies:
+
+  container.add(:bar) { |c| Bar.new(c[:foo]) }
+
+Get an instance:
+
+  bar = container[:bar]
+  bar.show # => 'foo'
+
+Decoration (the (({Decorator})) mixin is included in yadic):
+
+  class Embelish
+    include Decorator
+
+    def msg
+      "fancy #{@wrapped.msg}"
+    end
+  end
+
+  container.decorate(:foo, Embelish)
+
+  container[:foo].msg => 'fancy foo'
